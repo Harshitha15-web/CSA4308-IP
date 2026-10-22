@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Management System</title>
+  <link rel="stylesheet" href="1.css">
+</head>
+<body>
+  <header>
+    <h1>📚 Library Management System</h1>
+    <p>Your digital library portal</p>
+  </header>
+
+  <nav>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('books')">Books</button>
+    <button onclick="showPage('materials')">Study Materials</button>
+    <button onclick="showPage('history')">My Borrow History</button>
+    <button onclick="showPage('profile')">My Profile</button>
+    <button onclick="showPage('login')">Login</button>
+    <button onclick="logout()">Logout</button>
+  </nav>
+
+  <main>
+    <section id="home" class="page active">
+      <h2>Welcome to Our Library</h2>
+      <p>Search books, manage borrowing records, check fines, and download study materials.</p>
+      <div class="stats">
+        <div class="stat"><h3 id="totalBooks">0</h3><p>Total Books</p></div>
+        <div class="stat"><h3 id="availableBooks">0</h3><p>Available Books</p></div>
+        <div class="stat"><h3 id="issuedBooks">0</h3><p>Issued Books</p></div>
+      </div>
+      <h3>Contact Us</h3>
+      <form id="contactForm">
+        <input id="contactName" placeholder="Your name" required>
+        <input id="contactEmail" type="email" placeholder="Your email" required>
+        <textarea id="contactMessage" placeholder="Your message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <section id="login" class="page">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input id="loginEmail" type="email" placeholder="Email" required>
+        <input id="loginPassword" type="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+      <p>New student? <button onclick="showPage('register')">Register here</button></p>
+      <p>Demo admin: admin@library.com / admin123</p>
+    </section>
+
+    <section id="register" class="page">
+      <h2>Student Registration</h2>
+      <form id="registerForm">
+        <input id="regName" placeholder="Full name" required>
+        <input id="regEmail" type="email" placeholder="Email" required>
+        <input id="regPassword" type="password" minlength="6" placeholder="Password (minimum 6 characters)" required>
+        <button type="submit">Register</button>
+      </form>
+    </section>
+
+    <section id="books" class="page">
+      <h2>Book Catalog</h2>
+      <input id="searchBook" placeholder="Search by title, author, or category..." oninput="renderBooks()">
+      <div id="bookList" class="book-grid"></div>
+    </section>
+
+    <section id="admin" class="page">
+      <h2>Admin Dashboard</h2>
+      <h3>Add a Book</h3>
+      <form id="bookForm">
+        <input id="bookTitle" placeholder="Book title" required>
+        <input id="bookAuthor" placeholder="Author" required>
+        <input id="bookCategory" placeholder="Category" required>
+        <input id="bookQuantity" type="number" min="1" value="1" required>
+        <button type="submit">Add Book</button>
+      </form>
+
+      <h3>Inventory Management</h3>
+      <div id="adminBookList"></div>
+
+      <h3>Issued Books and Returns</h3>
+      <div id="adminIssueList"></div>
+
+      <h3>Study Material Upload</h3>
+      <form id="materialForm">
+        <input id="materialTitle" placeholder="Material title" required>
+        <select id="materialYear" required>
+          <option value="">Select year</option>
+          <option>1st Year</option>
+          <option>2nd Year</option>
+          <option>3rd Year</option>
+          <option>4th Year</option>
+        </select>
+        <select id="materialSemester" required>
+          <option value="">Select semester</option>
+          <option>Semester 1</option>
+          <option>Semester 2</option>
+        </select>
+        <input id="materialFile" type="file" accept=".pdf,.txt,.doc,.docx,.ppt,.pptx" required>
+        <button type="submit">Upload Material</button>
+      </form>
+    </section>
+
+    <section id="materials" class="page">
+      <h2>Study Materials</h2>
+      <div class="filters">
+        <select id="filterYear" onchange="renderMaterials()">
+          <option value="">All Years</option>
+          <option>1st Year</option>
+          <option>2nd Year</option>
+          <option>3rd Year</option>
+          <option>4th Year</option>
+        </select>
+        <select id="filterSemester" onchange="renderMaterials()">
+          <option value="">All Semesters</option>
+          <option>Semester 1</option>
+          <option>Semester 2</option>
+        </select>
+      </div>
+      <div id="materialList"></div>
+    </section>
+
+    <section id="history" class="page">
+      <h2>My Borrow History</h2>
+      <div id="historyList"></div>
+      <h3>My Fine</h3>
+      <p id="fineTotal">Total fine: ₹0</p>
+    </section>
+
+    <section id="profile" class="page">
+      <h2>My Profile</h2>
+      <div id="profileInfo"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Library Management System | Student & Admin Portal</p>
+  </footer>
+
+  <script src="1.js"></script>
+</body>
+</html>
