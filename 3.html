@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BusGo | Online Bus Ticket Booking</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-icon">▰</span> BusGo</a>
+    <nav>
+      <a href="#search">Find Buses</a>
+      <a href="#my-bookings">My Bookings</a>
+      <a href="#comments">Reviews</a>
+      <button id="admin-nav" class="nav-button">Admin</button>
+    </nav>
+    <div class="auth-actions">
+      <button class="btn btn-outline" id="login-open">Login</button>
+      <button class="btn btn-primary" id="register-open">Register</button>
+      <span id="welcome-user" class="hidden"></span>
+      <button class="btn btn-outline hidden" id="logout-btn">Logout</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">TRAVEL MADE SIMPLE</span>
+        <h1>Your journey<br />starts <span>here.</span></h1>
+        <p>Find your bus, choose your seat, and book your next trip in minutes.</p>
+        <a href="#search" class="btn btn-primary hero-cta">Book a ticket <span>→</span></a>
+      </div>
+      <div class="hero-art" aria-label="Illustration of a bus">
+        <div class="sun"></div>
+        <div class="road"></div>
+        <div class="bus-illustration">
+          <div class="bus-window"></div><div class="bus-window"></div><div class="bus-window"></div>
+          <div class="bus-front"></div><div class="wheel wheel-one"></div><div class="wheel wheel-two"></div>
+        </div>
+        <div class="route-dot dot-one"></div><div class="route-dot dot-two"></div>
+      </div>
+    </section>
+
+    <section class="search-panel section" id="search">
+      <div class="section-heading">
+        <div><span class="eyebrow">PLAN YOUR TRIP</span><h2>Where are you going?</h2></div>
+        <span class="pill">● Easy booking</span>
+      </div>
+      <form id="search-form" class="search-grid">
+        <label>From <input id="from-city" list="cities" placeholder="e.g. Chennai" required /></label>
+        <label>To <input id="to-city" list="cities" placeholder="e.g. Bengaluru" required /></label>
+        <datalist id="cities"><option>Chennai</option><option>Bengaluru</option><option>Hyderabad</option><option>Vijayawada</option><option>Coimbatore</option><option>Madurai</option><option>Tirupati</option><option>Nellore</option></datalist>
+        <label>Journey date <input id="journey-date" type="date" required /></label>
+        <label>Bus type
+          <select id="bus-type"><option value="all">All bus types</option><option>AC Sleeper</option><option>Non-AC Seater</option><option>Volvo AC</option></select>
+        </label>
+        <button class="btn btn-primary search-btn" type="submit">Search buses <span>→</span></button>
+      </form>
+    </section>
+
+    <section class="section results-section" id="results-section">
+      <div class="section-heading"><div><span class="eyebrow">AVAILABLE OPTIONS</span><h2>Choose your bus</h2></div><span id="result-count" class="muted"></span></div>
+      <div id="bus-results" class="bus-list"></div>
+    </section>
+
+    <section class="section" id="my-bookings">
+      <div class="section-heading"><div><span class="eyebrow">YOUR TRAVEL</span><h2>My bookings</h2></div><button id="refresh-bookings" class="btn btn-outline">Refresh</button></div>
+      <div id="booking-list" class="booking-list"></div>
+    </section>
+
+    <section class="section comments-section" id="comments">
+      <div class="section-heading"><div><span class="eyebrow">TRAVELLER STORIES</span><h2>Comments & reviews</h2></div></div>
+      <form id="comment-form" class="comment-form">
+        <input id="comment-name" placeholder="Your name" required />
+        <select id="comment-bus"><option value="All buses">All buses</option></select>
+        <input id="comment-text" placeholder="Share your experience..." required />
+        <button class="btn btn-primary" type="submit">Post comment</button>
+      </form>
+      <div id="comment-list" class="comment-list"></div>
+    </section>
+
+    <section class="section admin-section hidden" id="admin-panel">
+      <div class="section-heading"><div><span class="eyebrow">MANAGEMENT</span><h2>Admin dashboard</h2></div><button id="close-admin" class="btn btn-outline">Close</button></div>
+      <p class="admin-note">Demo admin panel — no server-side access control is implemented.</p>
+      <div class="admin-grid">
+        <form id="add-bus-form" class="admin-card">
+          <h3>Add a bus</h3>
+          <label>Operator name<input id="new-operator" required placeholder="e.g. City Express" /></label>
+          <div class="two-col"><label>From<input id="new-from" required /></label><label>To<input id="new-to" required /></label></div>
+          <div class="two-col"><label>Departure<input id="new-depart" type="time" required /></label><label>Arrival<input id="new-arrive" type="time" required /></label></div>
+          <div class="two-col"><label>Bus type<select id="new-type"><option>AC Sleeper</option><option>Non-AC Seater</option><option>Volvo AC</option></select></label><label>Fare (₹)<input id="new-fare" type="number" min="1" required /></label></div>
+          <label>Total seats<input id="new-seats" type="number" min="1" max="60" value="24" required /></label>
+          <button class="btn btn-primary" type="submit">Add bus</button>
+        </form>
+        <div class="admin-card"><h3>System reports</h3><div id="report-stats" class="stats-grid"></div><button id="export-report" class="btn btn-outline">Download booking report (CSV)</button><h3 class="admin-subtitle">Manage buses</h3><div id="admin-bus-list"></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#"><span class="brand-icon">▰</span> BusGo</a><p>Travel smarter. Arrive happier.</p><small>Internet Programming Lab · Demo project</small></footer>
+
+  <div id="auth-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+    <div class="modal-card"><button class="modal-close" id="auth-close" aria-label="Close">×</button><span class="eyebrow">WELCOME TO BUSGO</span><h2 id="auth-title">Login to your account</h2>
+      <form id="auth-form"><label id="auth-name-wrap" class="hidden">Full name<input id="auth-name" /></label><label>Email address<input id="auth-email" type="email" required placeholder="you@example.com" /></label><label>Password<input id="auth-password" type="password" required minlength="4" placeholder="At least 4 characters" /></label><button id="auth-submit" class="btn btn-primary full-width" type="submit">Login</button></form>
+      <p class="modal-switch" id="auth-switch">New here? <button type="button" id="switch-register">Create an account</button></p>
+    </div>
+  </div>
+
+  <div id="seat-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="seat-title">
+    <div class="modal-card seat-modal-card"><button class="modal-close" id="seat-close" aria-label="Close">×</button><span class="eyebrow">PICK YOUR SPOT</span><h2 id="seat-title">Choose your seats</h2><p id="seat-summary" class="muted"></p><div class="seat-legend"><span><i class="legend-seat available"></i> Available</span><span><i class="legend-seat selected"></i> Selected</span><span><i class="legend-seat booked"></i> Booked</span></div><div class="driver">DRIVER</div><div id="seat-grid" class="seat-grid"></div><div class="seat-footer"><span id="seat-total">0 seats selected</span><button id="confirm-booking" class="btn btn-primary">Continue · ₹0</button></div></div>
+  </div>
+
+  <div id="payment-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="payment-title">
+    <div class="modal-card"><button class="modal-close" id="payment-close" aria-label="Close">×</button><span class="eyebrow">FINAL STEP</span><h2 id="payment-title">Passenger details</h2><form id="payment-form"><label>Passenger full name<input id="passenger-name" required /></label><label>Contact email<input id="passenger-email" type="email" required /></label><label>Phone number<input id="passenger-phone" type="tel" pattern="[0-9+() -]{7,18}" required /></label><div class="payment-summary" id="payment-summary"></div><p class="demo-warning">Demo checkout: no real payment is collected.</p><button class="btn btn-primary full-width" type="submit">Confirm booking</button></form></div>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
