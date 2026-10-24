@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Stay - Hotel Booking</title>
+    <link rel="stylesheet" href="2.css">
+</head>
+<body>
+
+<header>
+    <h1>Grand Stay Hotel</h1>
+    <p>Your comfort, our priority</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#rooms">Rooms</a>
+    <a href="#booking">Book Now</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+    <a href="#admin">Admin</a>
+</nav>
+
+<section class="hero" id="home">
+    <h2>Find Your Perfect Stay</h2>
+    <p>Comfortable rooms at affordable prices</p>
+
+    <form action="#rooms">
+        <input type="text" placeholder="Destination" required>
+        <label>Check-in:</label>
+        <input type="date" required>
+        <label>Check-out:</label>
+        <input type="date" required>
+        <input type="number" placeholder="Guests" min="1" required>
+        <button type="submit">Search Rooms</button>
+    </form>
+</section>
+
+<section class="container" id="rooms">
+    <h2>Our Room Types</h2>
+
+    <div class="rooms">
+        <div class="card">
+            <h3>Single Room</h3>
+            <p>Comfortable room for one guest.</p>
+            <p class="price">₹1,500 / night</p>
+            <p>Wi-Fi | TV | AC</p>
+            <a href="#booking">Book Now</a>
+        </div>
+
+        <div class="card">
+            <h3>Double Room</h3>
+            <p>Spacious room for two guests.</p>
+            <p class="price">₹2,500 / night</p>
+            <p>Wi-Fi | TV | AC</p>
+            <a href="#booking">Book Now</a>
+        </div>
+
+        <div class="card">
+            <h3>Deluxe Room</h3>
+            <p>Premium room with extra comfort.</p>
+            <p class="price">₹3,500 / night</p>
+            <p>Wi-Fi | TV | AC | Breakfast</p>
+            <a href="#booking">Book Now</a>
+        </div>
+
+        <div class="card">
+            <h3>Family Suite</h3>
+            <p>Large room suitable for families.</p>
+            <p class="price">₹5,000 / night</p>
+            <p>Wi-Fi | TV | AC | Living Area</p>
+            <a href="#booking">Book Now</a>
+        </div>
+    </div>
+</section>
+
+<section class="container" id="booking">
+    <h2>Room Booking Form</h2>
+
+    <form class="booking-form">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="tel" placeholder="Phone Number" required>
+
+        <select required>
+            <option value="">Select Room Type</option>
+            <option>Single Room</option>
+            <option>Double Room</option>
+            <option>Deluxe Room</option>
+            <option>Family Suite</option>
+        </select>
+
+        <label>Check-in Date</label>
+        <input type="date" required>
+
+        <label>Check-out Date</label>
+        <input type="date" required>
+
+        <input type="number" placeholder="Number of Guests" min="1" required>
+        <button type="submit">Confirm Booking</button>
+    </form>
+</section>
+
+<section class="container" id="about">
+    <h2>About Us</h2>
+    <p>
+        Grand Stay Hotel provides comfortable accommodation,
+        quality service, and affordable rooms for individuals
+        and families. Our goal is to make every stay enjoyable.
+    </p>
+</section>
+
+<section class="container">
+    <h2>Customer Service Q&A</h2>
+    <div class="info">
+        <h3>Can I cancel my booking?</h3>
+        <p>Bookings can be cancelled up to 3 days before arrival.</p>
+
+        <h3>Can I modify my reservation?</h3>
+        <p>Yes, changes are allowed up to 3 days before arrival.</p>
+
+        <h3>How can I contact customer service?</h3>
+        <p>Contact our hotel team by phone or email.</p>
+    </div>
+</section>
+
+<section class="container">
+    <h2>Local Travel Guide</h2>
+    <p>
+        Explore nearby tourist attractions, shopping areas,
+        restaurants, and public transportation facilities.
+        Ask our reception team for travel assistance.
+    </p>
+</section>
+
+<section class="container" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: support@grandstay.com</p>
+    <p>Phone: +91 98765 43210</p>
+    <p>Address: Chennai, Tamil Nadu, India</p>
+</section>
+
+<section class="container" id="admin">
+    <h2>Administrator Panel</h2>
+    <div class="info">
+        <p>Manage room prices and availability.</p>
+        <p>View, modify, and cancel customer bookings.</p>
+        <p>Manage user accounts and hotel information.</p>
+        <p>Update contact details, FAQs, travel guides,
+           and privacy policies.</p>
+        <a href="#rooms">View Room Types</a>
+    </div>
+</section>
+
+<section class="container">
+    <h2>Privacy Policy</h2>
+    <p>
+        Customer information should be collected only for
+        booking and service purposes and protected against
+        unauthorized access. Payment information must be
+        handled securely.
+    </p>
+</section>
+
+<footer>
+    <p>&copy; 2026 Grand Stay Hotel | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: #183b56;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+header h1 {
+    font-size: 32px;
+}
+
+nav {
+    background: #102a43;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 12px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ffd166;
+}
+
+.hero {
+    background: #dceaf4;
+    text-align: center;
+    padding: 45px 20px;
+}
+
+.hero h2 {
+    color: #183b56;
+    font-size: 30px;
+}
+
+.hero form {
+    margin-top: 20px;
+}
+
+input, select {
+    padding: 11px;
+    margin: 6px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    max-width: 100%;
+}
+
+button {
+    padding: 12px 20px;
+    background: #183b56;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #276678;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 35px auto;
+}
+
+.container h2 {
+    text-align: center;
+    color: #183b56;
+    margin-bottom: 20px;
+}
+
+.rooms {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 22px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px #00000015;
+    border-top: 4px solid #d6a84f;
+}
+
+.card h3 {
+    color: #183b56;
+    margin-bottom: 12px;
+}
+
+.price {
+    color: #16804a;
+    font-size: 19px;
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+.card a, .info a {
+    display: inline-block;
+    background: #183b56;
+    color: white;
+    padding: 9px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 12px;
+}
+
+.booking-form {
+    max-width: 550px;
+    margin: auto;
+    padding: 25px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px #00000015;
+}
+
+.booking-form input,
+.booking-form select {
+    display: block;
+    width: 100%;
+    margin: 12px 0;
+}
+
+.booking-form label {
+    display: block;
+    margin-top: 10px;
+}
+
+.booking-form button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.info {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px #00000010;
+}
+
+.info h3 {
+    color: #183b56;
+    margin-top: 15px;
+}
+
+footer {
+    background: #102a43;
+    color: white;
+    text-align: center;
+    padding: 18px;
+    margin-top: 40px;
+}
+
+@media (max-width: 900px) {
+    .rooms {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 6px;
+    }
+}
+
+@media (max-width: 550px) {
+    .rooms {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h2 {
+        font-size: 24px;
+    }
+
+    .container {
+        width: 94%;
+    }
+}
